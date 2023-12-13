@@ -37,14 +37,14 @@ class TestUserCreate:
 class TestUserGet:
     def test_create_user_with_required_fields_and_valid_data(self):
         user = UserGet(
-            id="123",
+            id=123,
             email="test@example.com",
             first_name="John",
             last_name="Doe",
             sex=UserSex.Male,
             created_time=datetime.now()
         )
-        assert user.id == "123"
+        assert user.id == 123
         assert user.email == "test@example.com"
         assert user.first_name == "John"
         assert user.last_name == "Doe"
@@ -55,7 +55,7 @@ class TestUserGet:
 
     def test_create_user_with_all_fields_and_valid_data(self):
         user = UserGet(
-            id="123",
+            id=123,
             email="test@example.com",
             first_name="John",
             last_name="Doe",
@@ -64,7 +64,7 @@ class TestUserGet:
             created_time=datetime.now(),
             last_login=datetime.now()
         )
-        assert user.id == "123"
+        assert user.id == 123
         assert user.email == "test@example.com"
         assert user.first_name == "John"
         assert user.last_name == "Doe"
@@ -75,13 +75,13 @@ class TestUserGet:
 
     def test_create_user_with_sex_not_provided(self):
         user = UserGet(
-            id="123",
+            id=123,
             email="test@example.com",
             first_name="John",
             last_name="Doe",
             created_time=datetime.now()
         )
-        assert user.id == "123"
+        assert user.id == 123
         assert user.email == "test@example.com"
         assert user.first_name == "John"
         assert user.last_name == "Doe"

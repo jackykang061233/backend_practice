@@ -21,7 +21,7 @@ class UserCreate(BaseModel):
     last_login: datetime = Field(default_factory=get_created_time)
 
 class UserGet(BaseModel):
-    id: str
+    id: int
     email: EmailStr
     first_name: str = Field(min_length=1)
     last_name: str = Field(min_length=1)

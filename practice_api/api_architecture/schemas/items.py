@@ -4,10 +4,10 @@ from typing import Optional, List
 from datetime import datetime
 
 class ItemCreate(BaseModel):
-    name: str
-    price: float
+    name: str = Field(min_length=1)
+    price: float = Field(default=0.0, ge=0.0)
     description: str = Field(default=None, max_length=300)
-    orders: Optional[List[str]] = []
+    orders: Optional[List[int]] = []
 
     def get_created_time():
         return datetime.now()
@@ -16,11 +16,11 @@ class ItemCreate(BaseModel):
     last_update: datetime = Field(default=None)
 
 class ItemGet(BaseModel):
-    id: str
-    name: str
-    price: float
-    description: str = Field(ma_length=300)
-    orders: Optional[List[str]] = []
+    id: int
+    name: str = Field(min_length=1)
+    price: float = Field(default=0.0, ge=0.0)
+    description: str = Field(default=None, max_length=300)
+    orders: Optional[List[int]] = []
 
     created_time: datetime
     last_update: datetime = Field(default=None)
